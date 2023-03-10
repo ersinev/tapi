@@ -51,7 +51,7 @@ function CustomPaginationActionsTable(props: any) {
     
   }
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(4);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const rows: Row[] = props.rows;
 
@@ -108,13 +108,14 @@ function CustomPaginationActionsTable(props: any) {
   };
 
   return (
-    <TableContainer sx={{ maxHeight: 700 }} component={Paper}>
+    <TableContainer sx={{ maxHeight: 700 }} component={Paper} >
       <Table
         stickyHeader={true}
-        sx={{ minWidth: 500 }}
+        sx={{ minWidth: 500}}
         aria-label="custom pagination table"
+        
       >
-        <TableHead>
+        <TableHead className="tableHead" >
           <TableRow>
             
             {columns.map((column) => (
@@ -124,7 +125,7 @@ function CustomPaginationActionsTable(props: any) {
           </TableRow>
           
         </TableHead>
-        <TableBody>
+        <TableBody  >
           {(rowsPerPage > 0 && rows !== undefined && rows.length > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
@@ -165,10 +166,11 @@ function CustomPaginationActionsTable(props: any) {
             </TableRow>
           )}
         </TableBody>
-        <TableFooter>
-          <TableRow>
+        <TableFooter className="tablefooter" >
+          <TableRow >
             <TablePagination
-              rowsPerPageOptions={[4, 10, 25, { label: "All", value: -1 }]}
+              className="tablerow" 
+              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
               colSpan={3}
               count={rows.length}
               rowsPerPage={rowsPerPage}

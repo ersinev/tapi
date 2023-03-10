@@ -44,7 +44,7 @@ function AddNewPost(props: AddNewPostProps) {
   const [updatedObject, setupdatedObject] = useState({} as UpdatedObject);
   return (
     <div>
-      <Button variant="contained" color="success" onClick={handleOpen}>
+      <Button variant="contained" className="AddBtn" onClick={handleOpen}>
         Add New Post
         <AddIcon />
       </Button>

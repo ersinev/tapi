@@ -5,7 +5,7 @@ import { fetchPosts, deletePostById } from "./services/placeHolderService";
 import AddNewPost from "./AddNewPost";
 import { Row, UpdatedObject } from "./types/model";
 import Grid from "@mui/material/Grid";
-
+import "./style.css";
 function App() {
   const [rows, setrows] = useState<Row[]>([]);
   const [idCounter, setIdCounter] = useState<number>(1);
@@ -16,12 +16,10 @@ function App() {
     } else {
       fetchPosts().then((data) => setrows(data));
     }
-
-   
   }, []);
 
   useEffect(() => {
-    const counterFromStorage = localStorage.getItem('idCounter');
+    const counterFromStorage = localStorage.getItem("idCounter");
     if (counterFromStorage) {
       setIdCounter(parseInt(counterFromStorage));
     }
@@ -29,8 +27,6 @@ function App() {
     if (storedCounter) {
       setIdCounter(parseInt(storedCounter));
     }
-
-
   }, []);
 
   const updateLocalStorage = (data: Row[]) => {
@@ -78,33 +74,39 @@ function App() {
         ...rows,
         {
           ...response.data,
-          id: (idCounter+100), 
+          id: idCounter + 100,
           date: new Date(Date.now()).toLocaleString("en-us"),
         },
       ];
       setrows(updatedRows);
       updateLocalStorage(updatedRows);
-      setIdCounter(idCounter + 1); 
-      
+      setIdCounter(idCounter + 1);
+
       localStorage.setItem("idCounter", (idCounter + 1).toString());
     } catch (error) {
       console.error(error);
     }
-  }
- 
+  };
+
   return (
-    <Grid container className="App">
-      <Grid container>
-        <Grid item xs={8}>
+    <Grid container className="App mainapp">
+      <Grid container >
+        <Grid item xs={12}>
           <CustomPaginationActionsTable
+          className="gridContainer"
             rows={rows}
             deleteById={deleteById}
             patchById={patchById}
           />
         </Grid>
-
-        <Grid item xs={4}>
-          <AddNewPost addnewpost={addNewPost} />
+        <Grid container alignItems={"center"} padding={"5px"}>
+          <Grid item xs={6}>
+            <AddNewPost addnewpost={addNewPost} />
+          </Grid>
+          <Grid item xs={6}>
+             <h3 className="nmbrPost" >Number of Posts:  <span style={{fontSize:"22px", fontWeight:1000, color:'rgb(56, 178, 171)'}}>{rows.length}</span></h3>
+          </Grid>
+          
         </Grid>
       </Grid>
     </Grid>

@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  background-color: rgba(250, 235, 215, 0.644);
+}
+
+
+
+
+.MuiTable-stickyHeader {
+  background: radial-gradient(
+    circle at 0% 0%,
+    rgb(56, 178, 171) 50%,
+    rgb(163,206,241) 80%
+  );
+  
+  color: white;
+  
+}
+
+.MuiTableCell-head {
+  background-color: rgb(24, 89, 109) !important;
+  color: rgb(56, 178, 171) !important;
+  /* color: rgb(230, 236, 239) !important; */
+  font-weight: 1000 !important;
+  font-size: 20px !important;
+}
+.MuiTableRow-head {
+  color: rgb(0, 0, 0) !important;
+}
+
+.MuiTableCell-body>p{
+  color:black !important;
+  font-weight: 600 !important;
+}
+.MuiTableCell-body>h5{
+  color: rgba(255, 255, 255, 0.861) !important;
+  font-weight: 1000 !important;
+  font-size: 15px;
+}
+.AddBtn {
+  background-color: rgb(24, 89, 109) !important;
+}
+
+.nmbrPost {
+  color: white;
+  background-color: rgb(24, 89, 109);
+  font-size: 21px;
+  padding: 5px;
+  width: fit-content;
+  border-radius:5px;
+  font-weight: lighter;
+}
