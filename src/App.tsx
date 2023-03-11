@@ -7,15 +7,29 @@ import { Row, UpdatedObject } from "./types/model";
 import Grid from "@mui/material/Grid";
 import "./style.css";
 import { Button } from "@mui/material";
+import deleted1 from "./deleted.json";
+import Lottie from "lottie-react";
+import { width } from "@mui/system";
 function App() {
   const [rows, setrows] = useState<Row[]>([]);
   const [idCounter, setIdCounter] = useState<number>(1);
+  const [lottieIsTrue, setlottieIsTrue] = useState(false);
   useEffect(() => {
     const storedRows = localStorage.getItem("rows");
     if (storedRows) {
-      setrows(JSON.parse(storedRows));
+      setrows(JSON.parse(storedRows).sort((a: Row, b: Row) => {
+        if (a.date === undefined) return -1;
+        if (b.date === undefined) return 1;
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      }));
     } else {
-      fetchPosts().then((data) => setrows(data));
+      fetchPosts().then((data: Row[]) => {
+        setrows(data.sort((a: Row, b: Row) => {
+          if (a.date === undefined) return -1;
+          if (b.date === undefined) return 1;
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        }));
+      });
     }
   }, []);
 
@@ -72,13 +86,13 @@ function App() {
       });
 
       const updatedRows = [
-        ...rows,
+        
         {
           ...response.data,
           id: idCounter + 100,
           date: new Date(Date.now()).toLocaleString("en-us"),
         },
-        
+        ...rows,
       ];
       setrows(updatedRows);
       updateLocalStorage(updatedRows);
@@ -91,32 +105,65 @@ function App() {
   };
 
   const resetLocalStorage = () => {
-    localStorage.clear();
-    window.location.reload();
+    
+    setlottieIsTrue(true);
+    
+    setInterval(() => {
+      localStorage.clear();
+      window.location.reload()
+      setlottieIsTrue(false);
+    }, 2000);
+    
+   
+    
   };
 
   return (
     <Grid container className="App mainapp">
-      <Grid container >
+      <Grid container>
         <Grid item xs={12}>
-          <CustomPaginationActionsTable
-          className="gridContainer"
-            rows={rows}
-            deleteById={deleteById}
-            patchById={patchById}
-          />
+          {lottieIsTrue ? (
+            <div className="lottieDeleted">
+            
+            <Lottie animationData={deleted1}/>
+            <h3>You have reseted the local storage successfully</h3>
+            </div>
+          ) : (
+            <CustomPaginationActionsTable
+              className="gridContainer"
+              rows={rows}
+              deleteById={deleteById}
+              patchById={patchById}
+            />
+          )}
         </Grid>
-        <Grid container  padding={"5px"}>
+        <Grid className="childMain" container padding={"5px"}>
           <Grid item xs={4}>
             <AddNewPost addnewpost={addNewPost} />
           </Grid>
           <Grid item xs={4}>
-             <h3 className="nmbrPost" >Number of Posts:  <span style={{fontSize:"22px", fontWeight:1000, color:'rgb(56, 178, 171)'}}>{rows.length}</span></h3>
+            <h3 className="nmbrPost">
+              Number of Posts:{" "}
+              <span
+                style={{
+                  fontSize: "22px",
+                  fontWeight: 1000,
+                  color: "rgb(56, 178, 171)",
+                }}
+              >
+                {rows.length}
+              </span>
+            </h3>
           </Grid>
           <Grid item xs={4}>
-             <Button onClick={resetLocalStorage} variant="contained">Reset Local Storage</Button>
+            <Button
+              className="resetLocalBtn"
+              onClick={resetLocalStorage}
+              variant="contained"
+            >
+              Reset Local Storage
+            </Button>
           </Grid>
-          
         </Grid>
       </Grid>
     </Grid>

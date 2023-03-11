@@ -5,6 +5,7 @@ export interface Row {
   title: string;
   body: string;
   date?: string
+  
 }
 
 export interface UpdatedObject {

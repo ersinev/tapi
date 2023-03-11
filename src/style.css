@@ -26,7 +26,7 @@ html {
   background: radial-gradient(
     circle at 0% 0%,
     rgba(255, 239, 221,0.4) 50%,
-    rgb(163, 206, 241) 80%
+   
   );
 
   color: white;
@@ -47,13 +47,39 @@ html {
 }
 
 
+/* -----------------CHILD MAIN------------------------ */
+.childMain{
+  
+  display: flex !important;
+  justify-content: space-evenly !important;
+  
+}
+
+/* ---------------LOTTIE DELETED-------------------- */
 
 
+.lottieDeleted{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: lightblue;
+  
+  
+      
+
+}
 
 
 /* -----------------------ADD NEW POST BUTTON------------- */
 .AddBtn {
-  background-color: rgb(24, 89, 109) !important;
+  background: radial-gradient(
+    circle at 0% 0%,
+    rgb(0, 97, 126) 60%,
+    rgb(72, 116, 157) 100%
+  ) !important;
+
 }
 
 
@@ -65,10 +91,26 @@ html {
 /* -----------------NUMBER OF POSTS------------------- */
 .nmbrPost {
   color: white;
-  background-color: rgb(24, 89, 109);
+  background: radial-gradient(
+    circle at 0% 0%,
+    rgb(0, 97, 126) 60%,
+    rgb(72, 116, 157) 100%
+  ) !important;
   font-size: 21px;
   padding: 5px;
   width: fit-content;
   border-radius: 5px;
   font-weight: lighter;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* ------------------RESET LOCAL STOROGE--------------------- */
+
+.resetLocalBtn{
+  background: radial-gradient(
+    circle at 0% 0%,
+    rgb(0, 97, 126) 60%,
+    rgb(72, 116, 157) 100%
+  ) !important;
+  
 }
