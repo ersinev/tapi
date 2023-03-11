@@ -9,7 +9,7 @@ To make HTTP requests to the JSONPlaceholder API, I used Axios. I also used Reac
 
 For the design, I used Material UI to create a clean and responsive interface. I also used LottieFiles to add some animations and visual interest to the application.
 
-To give users feedback on their actions, I used React-Toastify to display success and error messages when a post is created, updated, or deleted.
+To give users feedback on their actions, I used React-Toastify to display success and error messages when a post is created and updated.
 
 Finally, to persist data even after the user closes the application, I used localStorage as a simple database solution.
 
