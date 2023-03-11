@@ -6,6 +6,7 @@ import AddNewPost from "./AddNewPost";
 import { Row, UpdatedObject } from "./types/model";
 import Grid from "@mui/material/Grid";
 import "./style.css";
+import { Button } from "@mui/material";
 function App() {
   const [rows, setrows] = useState<Row[]>([]);
   const [idCounter, setIdCounter] = useState<number>(1);
@@ -77,6 +78,7 @@ function App() {
           id: idCounter + 100,
           date: new Date(Date.now()).toLocaleString("en-us"),
         },
+        
       ];
       setrows(updatedRows);
       updateLocalStorage(updatedRows);
@@ -86,6 +88,11 @@ function App() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const resetLocalStorage = () => {
+    localStorage.clear();
+    window.location.reload();
   };
 
   return (
@@ -99,12 +106,15 @@ function App() {
             patchById={patchById}
           />
         </Grid>
-        <Grid container alignItems={"center"} padding={"5px"}>
-          <Grid item xs={6}>
+        <Grid container  padding={"5px"}>
+          <Grid item xs={4}>
             <AddNewPost addnewpost={addNewPost} />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={4}>
              <h3 className="nmbrPost" >Number of Posts:  <span style={{fontSize:"22px", fontWeight:1000, color:'rgb(56, 178, 171)'}}>{rows.length}</span></h3>
+          </Grid>
+          <Grid item xs={4}>
+             <Button onClick={resetLocalStorage} variant="contained">Reset Local Storage</Button>
           </Grid>
           
         </Grid>
