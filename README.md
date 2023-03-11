@@ -1,5 +1,6 @@
 Project Link: https://ersin-tapio.netlify.app/
 ![combine_images (1)](https://user-images.githubusercontent.com/66500873/224491300-27c9d388-830d-4bc0-962f-aaed953e767b.jpg)
+<br>
 
 For this project, I created a simple CRUD application using React and JSONPlaceholder API. The application allows users to retrieve and display a list of posts, create a new post, delete a post, and update a post.
 
