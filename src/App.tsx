@@ -7,7 +7,7 @@ import { Row, UpdatedObject } from "./types/model";
 import Grid from "@mui/material/Grid";
 import "./style.css";
 import { Button } from "@mui/material";
-import deleted1 from "./deleted.json";
+import deleted1 from "./deleted1.json";
 import Lottie from "lottie-react";
 
 function App() {
