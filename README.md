@@ -1,46 +1,16 @@
-# Getting Started with Create React App
+Project Link: https://ersin-tapio.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot (13)](https://user-images.githubusercontent.com/66500873/224496228-ffaf9c71-9f15-4a90-9e93-664b6872908c.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+For this project, I created a simple CRUD application using React and JSONPlaceholder API. The application allows users to retrieve and display a list of posts, create a new post, delete a post, and update a post.
 
-### `npm start`
+To make HTTP requests to the JSONPlaceholder API, I used Axios. I also used React Hooks such as useState and useEffect to manage state and lifecycle methods, respectively.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For the design, I used Material UI to create a clean and responsive interface. I also used LottieFiles to add some animations and visual interest to the application.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To give users feedback on their actions, I used React-Toastify to display success and error messages when a post is created and updated.
 
-### `npm test`
+Finally, to persist data even after the user closes the application, I used localStorage as a simple database solution.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+In addition, I used TypeScript to add type-checking to the application, which helped catch errors during development and made the code easier to maintain.
