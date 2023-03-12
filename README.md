@@ -11,6 +11,6 @@ For the design, I used Material UI to create a clean and responsive interface. I
 
 To give users feedback on their actions, I used React-Toastify to display success and error messages when a post is created and updated.
 
-Finally, to persist data even after the user closes the application, I used localStorage as a simple database solution.
+Finally, to persist data even after the user closes the application, I used localStorage as a simple database solution beside that I add reset local storage button so that user can reset local storage easily.
 
 In addition, I used TypeScript to add type-checking to the application, which helped catch errors during development and made the code easier to maintain.
