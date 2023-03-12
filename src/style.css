@@ -16,7 +16,7 @@ html {
   color: rgb(251,209,162) !important;
   font-weight: 1000 !important;
   font-size: 30px !important;
-  /* font-family: "Bebas Neue", cursive, "Times New Roman", Times, serif !important; */
+  
   font-family: 'Roboto', sans-serif !important;
 }
 .MuiTableRow-head {
@@ -114,3 +114,17 @@ html {
   ) !important;
   
 }
+
+@media screen and (max-width: 600px) {
+  .MuiTableCell-head {
+   
+    /* color: rgb(56, 178, 171) !important; */
+    
+    font-size: 20px !important;
+    
+    
+  }
+}
+
+
+

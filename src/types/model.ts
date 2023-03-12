@@ -9,8 +9,8 @@ export interface Row {
 }
 
 export interface UpdatedObject {
-  title:string
-  body:string
+  title?:string
+  body?:string
   userId?:number
   id?: number
 }

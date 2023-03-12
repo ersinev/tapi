@@ -18,8 +18,8 @@ function App() {
     const storedRows = localStorage.getItem("rows");
     if (storedRows) {
       setrows(JSON.parse(storedRows).sort((a: Row, b: Row) => {
-        if (a.date === undefined) return -1;
-        if (b.date === undefined) return 1;
+        if (a.date === undefined) return 1;
+        if (b.date === undefined) return -1;
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       }));
     } else {

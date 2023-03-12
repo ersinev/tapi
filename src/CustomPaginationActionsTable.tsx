@@ -108,10 +108,10 @@ function CustomPaginationActionsTable(props: any) {
   };
 
   return (
-    <TableContainer sx={{ maxHeight: 700 }} component={Paper} >
+    <TableContainer sx={{ maxHeight: 700 }} component={Paper} className="tableContainer" >
       <Table
         stickyHeader={true}
-        sx={{ minWidth: 500}}
+        
         aria-label="custom pagination table"
         
       >
@@ -133,7 +133,7 @@ function CustomPaginationActionsTable(props: any) {
             <TableRow key={row.id}>
               
               <TableCell sx={{ maxWidth: 700 }} component="th" scope="row">
-                <h5>{row.title.toUpperCase()}</h5>
+                <h5>{row.title&&`${row.title.toUpperCase()}`}</h5>
                 <p>{row.body}</p>
               </TableCell>
               <TableCell>{row.id}</TableCell>

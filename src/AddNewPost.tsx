@@ -10,6 +10,7 @@ import { AddNewPostProps } from "./types/model";
 import AddIcon from "@mui/icons-material/Add";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Grid } from "@mui/material";
 
 const style = {
   position: "absolute" as "absolute",
@@ -40,9 +41,14 @@ function AddNewPost(props: AddNewPostProps) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [updatedObject, setupdatedObject] = useState({} as UpdatedObject);
+  const [disableSave, setDisableSave] = useState(true);
+ 
   return (
-    <div>
-      <Button style={{alignItems:"center", justifyContent:"center"}} variant="contained" className="AddBtn" onClick={handleOpen}>
+    <Grid>
+      <Button  style={{alignItems:"center", justifyContent:"center"}} variant="contained" className="AddBtn" onClick={()=>{
+        handleOpen()
+        setDisableSave(true)
+        }}>
         Add New Post
         <AddIcon />
       </Button>
@@ -68,14 +74,21 @@ function AddNewPost(props: AddNewPostProps) {
               <TextField
                 id="outlined-multiline-flexible"
                 label="Title"
-                onChange={(e) =>
+                onChange={(e) => {
+                 
                   setupdatedObject({
-                    ...updatedObject,
+                    body:updatedObject.body,
                     title: e.target.value
-                  })
-                }
+                  });
+                  
+                  console.log(updatedObject.body)
+                  setDisableSave(updatedObject.body === undefined || e.target.value === '');
+                }}
                 multiline
                 maxRows={4}
+                required
+                
+                
               />
 
               <TextField
@@ -83,22 +96,29 @@ function AddNewPost(props: AddNewPostProps) {
                 label="Body"
                 multiline
                 rows={4}
-                onChange={(e) =>
+                onChange={(e) => {
                   setupdatedObject({
                     ...updatedObject,
                     body: e.target.value
-                  })
-                }
+                  });
+                  setDisableSave(updatedObject.title === '' || e.target.value === '');
+                }}
+                required={true}
+                
+                
               />
 
               <Button
                 variant="contained"
                 color="success"
+                
                 onClick={() => {
                   props.addnewpost(updatedObject);
                   setOpen(false);
                   notify();
+                  setupdatedObject({title:'', body:undefined})
                 }}
+                disabled={disableSave}
               >
                 Save
               </Button>
@@ -108,7 +128,7 @@ function AddNewPost(props: AddNewPostProps) {
       </Modal>
 
       <ToastContainer />
-    </div>
+    </Grid>
   );
 }
 
