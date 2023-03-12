@@ -9,7 +9,7 @@ import "./style.css";
 import { Button } from "@mui/material";
 import deleted1 from "./deleted.json";
 import Lottie from "lottie-react";
-import { width } from "@mui/system";
+
 function App() {
   const [rows, setrows] = useState<Row[]>([]);
   const [idCounter, setIdCounter] = useState<number>(1);

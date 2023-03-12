@@ -70,8 +70,8 @@ function AddNewPost(props: AddNewPostProps) {
                 label="Title"
                 onChange={(e) =>
                   setupdatedObject({
-                    title: e.target.value,
-                    body: updatedObject.body,
+                    ...updatedObject,
+                    title: e.target.value
                   })
                 }
                 multiline
@@ -85,8 +85,8 @@ function AddNewPost(props: AddNewPostProps) {
                 rows={4}
                 onChange={(e) =>
                   setupdatedObject({
-                    title: updatedObject.body,
-                    body: e.target.value,
+                    ...updatedObject,
+                    body: e.target.value
                   })
                 }
               />
